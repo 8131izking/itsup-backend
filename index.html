@@ -1,35 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <title>いーつーPー Chat</title>
-</head>
-<body>
-  <h1>いーつーPー Webアプリへようこそ！</h1>
-
-  <form id="chat-form">
-    <input type="text" id="user-input" placeholder="ChatGPTに話しかけてみて…" required />
-    <button type="submit">送信</button>
-  </form>
-
-  <div id="response"></div>
-
-  <script>
-    document.getElementById('chat-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const input = document.getElementById('user-input').value;
-
-      const response = await fetch('/api/gpt', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ prompt: input })
-      });
-
-      const data = await response.json();
-      document.getElementById('response').textContent = data.reply;
-    });
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chat いーつーPー Webアプリ</title>
+  </head>
+  <body>
+    <h1>Chat いーつーPー</h1>
+    <form>
+      <input type="text" id="userInput" placeholder="ここに単語を入力してね" />
+      <button type="submit">送信</button>
+    </form>
+    <p id="response">ここに結果が表示されます</p>
+    <script src="index.js"></script>
+  </body>
 </html>
