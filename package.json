@@ -1,1 +1,12 @@
-https://itsup-backend.netlify.app/
+{
+  "name": "itsup-backend",
+  "version": "1.0.0",
+  "description": "Netlify Functions for itsup-backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
