@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>いーつーPー Webアプリ</title>
+  <meta charset="UTF-8" />
+  <title>いーつーPー Chat</title>
 </head>
 <body>
   <h1>いーつーPー Webアプリへようこそ！</h1>
-  <p>ここからあなたのアプリが始まるよ！</p>
+
+  <form id="chat-form">
+    <input type="text" id="user-input" placeholder="ChatGPTに話しかけてみて…" required />
+    <button type="submit">送信</button>
+  </form>
+
+  <div id="response"></div>
+
+  <script>
+    document.getElementById('chat-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const input = document.getElementById('user-input').value;
+
+      const response = await fetch('/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: input })
+      });
+
+      const data = await response.json();
+      document.getElementById('response').textContent = data.reply;
+    });
+  </script>
 </body>
 </html>
