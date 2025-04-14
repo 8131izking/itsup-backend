@@ -19,12 +19,12 @@
       e.preventDefault();
       const input = document.getElementById('user-input').value;
 
-      const response = await fetch('/chat', {
+      const response = await fetch('/api/gpt', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ message: input })
+        body: JSON.stringify({ prompt: input })
       });
 
       const data = await response.json();
