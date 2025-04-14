@@ -12,3 +12,4 @@ document.querySelector("form").addEventListener("submit", async (e) => {
 
   document.getElementById("response").textContent = data.reply;
 });
+// 表示に変化がないため再アップロード対応
